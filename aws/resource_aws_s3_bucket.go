@@ -2,7 +2,6 @@ package aws
 
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -14,9 +13,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/arn"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/endpoints"
-	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 	"github.com/dza89/terraform-provider-wasabi/aws/internal/hashcode"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -781,13 +778,7 @@ func resourceAwsS3BucketRead(d *schema.ResourceData, meta interface{}) error {
 
 	// Add the region as an attribute
 	discoveredRegion, err := retryOnAwsCode("NotFound", func() (interface{}, error) {
-		return s3manager.GetBucketRegionWithClient(context.Background(), s3conn, d.Id(), func(r *request.Request) {
-			// By default, GetBucketRegion forces virtual host addressing, which
-			// is not compatible with many non-AWS implementations. Instead, pass
-			// the provider s3_force_path_style configuration, which defaults to
-			// false, but allows override.
-			r.Config.S3ForcePathStyle = s3conn.Config.S3ForcePathStyle
-		})
+		return s3BucketRegion(s3conn, d.Id())
 	})
 	if err != nil {
 		return fmt.Errorf("error getting S3 Bucket location: %s", err)
@@ -813,6 +804,27 @@ func resourceAwsS3BucketRead(d *schema.ResourceData, meta interface{}) error {
 	d.Set("arn", arn)
 
 	return nil
+}
+
+// s3BucketRegion returns the region of a bucket using a signed GetBucketLocation
+// request. The anonymous HeadBucket request used by s3manager.GetBucketRegion
+// is answered with 403 by Wasabi, and only some of its front ends include the
+// x-amz-bucket-region header, so it fails intermittently.
+func s3BucketRegion(s3conn *s3.S3, bucket string) (string, error) {
+	output, err := s3conn.GetBucketLocation(&s3.GetBucketLocationInput{
+		Bucket: aws.String(bucket),
+	})
+	if err != nil {
+		return "", err
+	}
+
+	// A null LocationConstraint means us-east-1.
+	location := "us-east-1"
+	if output.LocationConstraint != nil {
+		location = aws.StringValue(output.LocationConstraint)
+	}
+
+	return s3.NormalizeBucketLocation(location), nil
 }
 
 func resourceAwsS3BucketDelete(d *schema.ResourceData, meta interface{}) error {
