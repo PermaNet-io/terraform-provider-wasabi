@@ -19,7 +19,6 @@ description: |-
 
 - `allow_users_to_change_password` (Boolean)
 - `hard_expiry` (Boolean)
-- `id` (String) The ID of this resource.
 - `max_password_age` (Number)
 - `minimum_password_length` (Number)
 - `password_reuse_prevention` (Number)
@@ -31,5 +30,4 @@ description: |-
 ### Read-Only
 
 - `expire_passwords` (Boolean)
-
-
+- `id` (String) The ID of this resource.

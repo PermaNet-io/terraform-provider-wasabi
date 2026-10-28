@@ -24,7 +24,6 @@ description: |-
 - `cors_rule` (Block List) (see [below for nested schema](#nestedblock--cors_rule))
 - `force_destroy` (Boolean)
 - `grant` (Block Set) (see [below for nested schema](#nestedblock--grant))
-- `id` (String) The ID of this resource.
 - `lifecycle_rule` (Block List) (see [below for nested schema](#nestedblock--lifecycle_rule))
 - `logging` (Block Set) (see [below for nested schema](#nestedblock--logging))
 - `policy` (String)
@@ -35,6 +34,7 @@ description: |-
 
 - `bucket_domain_name` (String)
 - `bucket_regional_domain_name` (String)
+- `id` (String) The ID of this resource.
 - `region` (String)
 
 <a id="nestedblock--cors_rule"></a>
@@ -62,7 +62,7 @@ Required:
 
 Optional:
 
-- `id` (String) The ID of this resource.
+- `id` (String)
 - `uri` (String)
 
 
@@ -77,7 +77,7 @@ Optional:
 
 - `abort_incomplete_multipart_upload_days` (Number)
 - `expiration` (Block List, Max: 1) (see [below for nested schema](#nestedblock--lifecycle_rule--expiration))
-- `id` (String) The ID of this resource.
+- `id` (String)
 - `noncurrent_version_expiration` (Block List, Max: 1) (see [below for nested schema](#nestedblock--lifecycle_rule--noncurrent_version_expiration))
 - `noncurrent_version_transition` (Block Set) (see [below for nested schema](#nestedblock--lifecycle_rule--noncurrent_version_transition))
 - `prefix` (String)
@@ -146,5 +146,3 @@ Optional:
 
 - `enabled` (Boolean)
 - `mfa_delete` (Boolean)
-
-

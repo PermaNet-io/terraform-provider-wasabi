@@ -21,12 +21,10 @@ description: |-
 
 ### Optional
 
-- `id` (String) The ID of this resource.
 - `path` (String)
 
 ### Read-Only
 
 - `arn` (String)
+- `id` (String) The ID of this resource.
 - `unique_id` (String)
-
-

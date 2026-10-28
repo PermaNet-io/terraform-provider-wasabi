@@ -19,15 +19,10 @@ description: |-
 
 - `bucket` (String)
 
-### Optional
-
-- `id` (String) The ID of this resource.
-
 ### Read-Only
 
 - `arn` (String)
 - `bucket_domain_name` (String)
 - `bucket_regional_domain_name` (String)
+- `id` (String) The ID of this resource.
 - `region` (String)
-
-

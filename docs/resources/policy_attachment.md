@@ -23,8 +23,9 @@ description: |-
 ### Optional
 
 - `groups` (Set of String)
-- `id` (String) The ID of this resource.
 - `roles` (Set of String)
 - `users` (Set of String)
 
+### Read-Only
 
+- `id` (String) The ID of this resource.

@@ -22,13 +22,11 @@ description: |-
 
 ### Optional
 
-- `id` (String) The ID of this resource.
 - `password_length` (Number)
 - `password_reset_required` (Boolean)
 
 ### Read-Only
 
 - `encrypted_password` (String)
+- `id` (String) The ID of this resource.
 - `key_fingerprint` (String)
-
-

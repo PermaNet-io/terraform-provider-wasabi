@@ -21,8 +21,6 @@ description: |-
 - `name` (String)
 - `users` (Set of String)
 
-### Optional
+### Read-Only
 
 - `id` (String) The ID of this resource.
-
-

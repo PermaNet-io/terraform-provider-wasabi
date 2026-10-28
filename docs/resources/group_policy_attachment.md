@@ -20,8 +20,6 @@ description: |-
 - `group` (String)
 - `policy_arn` (String)
 
-### Optional
+### Read-Only
 
 - `id` (String) The ID of this resource.
-
-

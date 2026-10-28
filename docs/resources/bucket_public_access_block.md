@@ -23,8 +23,9 @@ description: |-
 
 - `block_public_acls` (Boolean)
 - `block_public_policy` (Boolean)
-- `id` (String) The ID of this resource.
 - `ignore_public_acls` (Boolean)
 - `restrict_public_buckets` (Boolean)
 
+### Read-Only
 
+- `id` (String) The ID of this resource.

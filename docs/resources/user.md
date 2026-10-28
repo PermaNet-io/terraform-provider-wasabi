@@ -22,13 +22,11 @@ description: |-
 ### Optional
 
 - `force_destroy` (Boolean) Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
-- `id` (String) The ID of this resource.
 - `path` (String)
 - `permissions_boundary` (String)
 
 ### Read-Only
 
 - `arn` (String)
+- `id` (String) The ID of this resource.
 - `unique_id` (String)
-
-

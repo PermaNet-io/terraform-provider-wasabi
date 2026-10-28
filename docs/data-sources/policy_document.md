@@ -17,7 +17,6 @@ description: |-
 
 ### Optional
 
-- `id` (String) The ID of this resource.
 - `override_json` (String)
 - `policy_id` (String)
 - `source_json` (String)
@@ -26,6 +25,7 @@ description: |-
 
 ### Read-Only
 
+- `id` (String) The ID of this resource.
 - `json` (String)
 
 <a id="nestedblock--statement"></a>
@@ -69,5 +69,3 @@ Required:
 
 - `identifiers` (Set of String)
 - `type` (String)
-
-

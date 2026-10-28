@@ -32,13 +32,11 @@ description: |-
 - `content_type` (String)
 - `etag` (String)
 - `force_destroy` (Boolean)
-- `id` (String) The ID of this resource.
 - `metadata` (Map of String)
 - `source` (String)
 - `storage_class` (String)
 
 ### Read-Only
 
+- `id` (String) The ID of this resource.
 - `version_id` (String)
-
-
