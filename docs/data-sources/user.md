@@ -19,15 +19,10 @@ description: |-
 
 - `user_name` (String)
 
-### Optional
-
-- `id` (String) The ID of this resource.
-
 ### Read-Only
 
 - `arn` (String)
+- `id` (String) The ID of this resource.
 - `path` (String)
 - `permissions_boundary` (String)
 - `user_id` (String)
-
-

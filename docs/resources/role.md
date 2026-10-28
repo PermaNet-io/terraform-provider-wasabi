@@ -23,7 +23,6 @@ description: |-
 
 - `description` (String)
 - `force_detach_policies` (Boolean)
-- `id` (String) The ID of this resource.
 - `max_session_duration` (Number)
 - `name` (String)
 - `name_prefix` (String)
@@ -34,6 +33,5 @@ description: |-
 
 - `arn` (String)
 - `create_date` (String)
+- `id` (String) The ID of this resource.
 - `unique_id` (String)
-
-

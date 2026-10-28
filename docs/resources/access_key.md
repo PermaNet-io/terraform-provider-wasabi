@@ -21,15 +21,13 @@ description: |-
 
 ### Optional
 
-- `id` (String) The ID of this resource.
 - `pgp_key` (String)
 - `status` (String)
 
 ### Read-Only
 
 - `encrypted_secret` (String)
+- `id` (String) The ID of this resource.
 - `key_fingerprint` (String)
 - `secret` (String, Sensitive)
 - `ses_smtp_password_v4` (String, Sensitive)
-
-

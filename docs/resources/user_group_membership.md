@@ -20,8 +20,6 @@ description: |-
 - `groups` (Set of String)
 - `user` (String)
 
-### Optional
+### Read-Only
 
 - `id` (String) The ID of this resource.
-
-

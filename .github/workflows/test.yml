@@ -43,7 +43,7 @@ jobs:
     steps:
       - uses: actions/setup-go@be3c94b385c4f180051c996d336f57a34c397495 # v3.6.1
         with:
-          go-version: '1.16'
+          go-version: '1.26'
       - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
       - run: go generate ./...
       - name: git diff
@@ -51,10 +51,27 @@ jobs:
           git diff --compact-summary --exit-code || \
             (echo; echo "Unexpected difference in directories after code generation. Run 'go generate ./...' command and commit."; exit 1)
 
+  acceptance-credentials:
+    runs-on: ubuntu-latest
+    outputs:
+      available: ${{ steps.check.outputs.available }}
+    steps:
+      - id: check
+        env:
+          WASABI_ACCESS_KEY: ${{ secrets.WASABI_ACCESS_KEY }}
+          WASABI_SECRET_KEY: ${{ secrets.WASABI_SECRET_KEY }}
+        run: |
+          if [[ -n "$WASABI_ACCESS_KEY" && -n "$WASABI_SECRET_KEY" ]]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          fi
+
   # run acceptance tests in a matrix with Terraform core versions
   test:
     name: Acceptance Tests
-    needs: build
+    needs: [build, acceptance-credentials]
+    if: needs.acceptance-credentials.outputs.available == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:

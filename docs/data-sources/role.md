@@ -19,19 +19,14 @@ description: |-
 
 - `name` (String)
 
-### Optional
-
-- `id` (String) The ID of this resource.
-
 ### Read-Only
 
 - `arn` (String)
 - `assume_role_policy` (String)
 - `create_date` (String)
 - `description` (String)
+- `id` (String) The ID of this resource.
 - `max_session_duration` (Number)
 - `path` (String)
 - `permissions_boundary` (String)
 - `unique_id` (String)
-
-

@@ -19,15 +19,10 @@ description: |-
 
 - `arn` (String)
 
-### Optional
-
-- `id` (String) The ID of this resource.
-
 ### Read-Only
 
 - `description` (String)
+- `id` (String) The ID of this resource.
 - `name` (String)
 - `path` (String)
 - `policy` (String)
-
-

@@ -24,7 +24,6 @@ description: |-
 - `delimiter` (String)
 - `encoding_type` (String)
 - `fetch_owner` (Boolean)
-- `id` (String) The ID of this resource.
 - `max_keys` (Number)
 - `prefix` (String)
 - `start_after` (String)
@@ -32,7 +31,6 @@ description: |-
 ### Read-Only
 
 - `common_prefixes` (List of String)
+- `id` (String) The ID of this resource.
 - `keys` (List of String)
 - `owners` (List of String)
-
-

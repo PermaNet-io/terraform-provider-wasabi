@@ -22,8 +22,9 @@ description: |-
 
 ### Optional
 
-- `id` (String) The ID of this resource.
 - `name` (String)
 - `name_prefix` (String)
 
+### Read-Only
 
+- `id` (String) The ID of this resource.

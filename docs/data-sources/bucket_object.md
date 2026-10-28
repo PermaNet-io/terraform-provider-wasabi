@@ -22,7 +22,6 @@ description: |-
 
 ### Optional
 
-- `id` (String) The ID of this resource.
 - `range` (String)
 - `version_id` (String)
 
@@ -38,9 +37,8 @@ description: |-
 - `etag` (String)
 - `expiration` (String)
 - `expires` (String)
+- `id` (String) The ID of this resource.
 - `last_modified` (String)
 - `metadata` (Map of String)
 - `sse_kms_key_id` (String)
 - `storage_class` (String)
-
-

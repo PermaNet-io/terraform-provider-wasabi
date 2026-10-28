@@ -22,7 +22,6 @@ description: |-
 ### Optional
 
 - `description` (String)
-- `id` (String) The ID of this resource.
 - `name` (String)
 - `name_prefix` (String)
 - `path` (String)
@@ -30,5 +29,4 @@ description: |-
 ### Read-Only
 
 - `arn` (String)
-
-
+- `id` (String) The ID of this resource.
